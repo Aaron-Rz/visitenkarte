@@ -1,0 +1,87 @@
+{
+  "name": "Aaron Ratz",
+  "titel": { "en": "Marketing, AI & Automation", "de": "Marketing, KI & Automatisierung" },
+  "ort": { "en": "Baden-Württemberg, Germany", "de": "Baden-Württemberg" },
+  "telefon": "+49 1590 1690347",
+  "email": "aaron.ratz@icloud.com",
+  "linkedin": "linkedin.com/in/aaron-ratz",
+  "stand": "2026-10",
+  "profil": {
+    "en": "Business student in Marketing Communication & Digital Marketing with hands-on agency leadership, expert-level video production and a growing focus on AI and marketing automation.",
+    "de": "BWL-Student (Marketingkommunikation & Digital Marketing) mit Führungserfahrung in einer studentischen Agentur, Expertise in der Videoproduktion und wachsendem Fokus auf KI und Marketing-Automatisierung."
+  },
+  "erfahrung": [
+    {
+      "zeit": { "en": "04/2026 – today", "de": "04/2026 – heute" },
+      "rolle": { "en": "Working Student Marketing", "de": "Werkstudent Marketing" },
+      "ort": "Strecker-Olenyi Industrie- & Gewerbeimmobilien, Karlsruhe",
+      "punkte": {
+        "en": ["Marketing for a specialist broker of industrial and commercial real estate", "Quarterly market reports and social media content", "Building AI-assisted content workflows"],
+        "de": ["Marketing für einen Spezialmakler für Industrie- und Gewerbeimmobilien", "Quartalsweise Marktberichte und Social-Media-Content", "Aufbau KI-gestützter Content-Workflows"]
+      }
+    },
+    {
+      "zeit": { "en": "12/2025 – 06/2026", "de": "12/2025 – 06/2026" },
+      "rolle": { "en": "Chair of the Board", "de": "Vorstandsvorsitzender" },
+      "ort": { "en": "Werbeliebe e.V., student communications agency, Pforzheim", "de": "Werbeliebe e.V., studentische Kommunikationsagentur, Pforzheim" },
+      "punkte": {
+        "en": ["Led 40+ active members and represented the agency in client meetings", "Website and email administration", "Designed onboarding and offboarding processes and member satisfaction surveys", "Active since 10/2024 in the event (Refill), social media and client acquisition teams"],
+        "de": ["Führung von über 40 aktiven Mitgliedern, Kundengespräche", "Verwaltung von Website & E-Mails", "Gestaltung von Onboarding- & Abmeldeprozess sowie Mitgliederumfragen", "Seit 10/2024 aktiv in den Teams Event (Refill), Social Media und Kunden-Akquise"]
+      }
+    },
+    {
+      "zeit": { "en": "03/2025 – 12/2025", "de": "03/2025 – 12/2025" },
+      "rolle": { "en": "Team Lead Film & Photo", "de": "Teamleiter Film & Foto" },
+      "ort": "Werbeliebe e.V., Pforzheim",
+      "punkte": {
+        "en": ["Planned and produced photo and video projects for internal and external clients, e.g. the Refill aftermovie and a Bosch client project", "Developed a film and post-production workshop for members"],
+        "de": ["Planung & Umsetzung von Foto- & Videoprojekten, intern wie extern, z. B. Refill-Aftermovie & Bosch-Kundenprojekt", "Entwicklung eines Workshops zu Film & Postproduktion für Mitglieder"]
+      }
+    },
+    {
+      "zeit": { "en": "07/2024 – 09/2024", "de": "07/2024 – 09/2024" },
+      "rolle": { "en": "Mail & Parcel Carrier", "de": "Verbundzusteller Brief & Pakete" },
+      "ort": "Deutsche Post AG",
+      "punkte": { "en": [], "de": [] }
+    },
+    {
+      "zeit": { "en": "02/2024 – 04/2024", "de": "02/2024 – 04/2024" },
+      "rolle": { "en": "Intern, Media Design (Image & Sound)", "de": "Praktikum Mediengestalter Bild & Ton" },
+      "ort": "TV-BW Medienproduktionen, Pforzheim",
+      "punkte": {
+        "en": ["Field shoots (ENG), studio recordings and equipment logistics", "Video editing in Adobe Premiere"],
+        "de": ["EB-Einsätze, Studio-Aufzeichnungen, Organisation & Lagerhaltung", "Filmschnitt mit Adobe Premiere"]
+      }
+    }
+  ],
+  "bildung": [
+    {
+      "zeit": { "en": "08/2026 – 12/2026", "de": "08/2026 – 12/2026" },
+      "rolle": { "en": "Exchange semester, International BBA", "de": "Auslandssemester, International BBA" },
+      "ort": { "en": "EDHEC Business School, Nice, France", "de": "EDHEC Business School, Nizza, Frankreich" }
+    },
+    {
+      "zeit": { "en": "09/2024 – today", "de": "09/2024 – heute" },
+      "rolle": { "en": "B.Sc. Business Administration: Marketing Communication & Digital Marketing (current grade 2.1)", "de": "B.Sc. BWL / Marketingkommunikation & Digital Marketing (aktuelle Note 2,1)" },
+      "ort": "Hochschule Pforzheim"
+    },
+    {
+      "zeit": { "en": "2015 – 06/2023", "de": "2015 – 06/2023" },
+      "rolle": { "en": "Abitur (general university entrance qualification)", "de": "Abitur (Allgemeine Hochschulreife)" },
+      "ort": "Gymnasium Neuenbürg"
+    }
+  ],
+  "faehigkeiten": [
+    { "stufe": { "en": "Expert", "de": "Experte" }, "liste": { "en": ["Photo & video production", "Premiere Pro & DaVinci Resolve", "Canva"], "de": ["Foto- & Videografie", "Premiere Pro & DaVinci Resolve", "Canva"] } },
+    { "stufe": { "en": "Advanced", "de": "Fortgeschritten" }, "liste": { "en": ["Meta & Google Ads", "Photoshop & After Effects", "AI tools & workflow automation (n8n, LLMs)", "Microsoft Office"], "de": ["Meta & Google Ads", "Photoshop & After Effects", "KI-Tools & Workflow-Automatisierung (n8n, LLMs)", "Microsoft Office"] } },
+    { "stufe": { "en": "Basic", "de": "Grundkenntnisse" }, "liste": { "en": ["SEO"], "de": ["SEO"] } }
+  ],
+  "sprachen": {
+    "en": ["German (native)", "English (business fluent)", "French (B1)"],
+    "de": ["Deutsch (Muttersprache)", "Englisch (verhandlungssicher)", "Französisch (B1)"]
+  },
+  "zertifikate": {
+    "en": ["INSIDE LVMH Certificate, LVMH (07/2026)", "Management of Fashion and Luxury Companies, Università Bocconi (02/2026)", "McKinsey.org Forward Program (12/2025)", "Social Media Marketing Professional, Hootsuite (07/2025)", "Driving licence class B"],
+    "de": ["INSIDE LVMH Certificate, LVMH (07/2026)", "Management of Fashion and Luxury Companies, Università Bocconi (02/2026)", "McKinsey.org Forward Program (12/2025)", "Social Media Marketing Professional, Hootsuite (07/2025)", "Führerschein Klasse B"]
+  }
+}

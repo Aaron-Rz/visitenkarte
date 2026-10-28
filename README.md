@@ -33,6 +33,29 @@ Telefon und E-Mail stehen zusätzlich in `index.html` (die Links unten auf der S
 **Nach jeder vCard-Änderung** in `index.html` die Versionsnummer am Link erhöhen (`aaron-ratz.vcf?v=3` → `?v=4`).
 Sonst liefern Safari bzw. der GitHub-Cache (10 Minuten) noch die alte Datei aus.
 
+## Qualifikationsseite `/profile`
+
+Lebenslauf (Web + PDF Englisch/Deutsch), Arbeitszeugnisse, Notenspiegel und Zertifikate; erreichbar über die Zeile
+„Profile – CV & credentials“ auf der Kontaktseite.
+
+- `profile/lebenslauf.json`: **einzige Quelle** für den Lebenslauf (zweisprachig). `profile/lebenslauf.js` rendert daraus
+  die Web-Fassung (`profile/index.html`) und die Druckvorlage (`profile/cv-druck.html?lang=en|de`).
+- PDFs neu erzeugen nach jeder Änderung an der JSON (Ziel: je eine A4-Seite):
+  ```sh
+  PLAYWRIGHT_CORE=/pfad/zu/node_modules/playwright-core CHROMIUM=/pfad/zu/chrome node werkzeuge/lebenslauf-pdf.js
+  ```
+- Nachweise aufbereiten (Quelle: Aarons Bewerbungsordner) mit PyMuPDF (`pip install pymupdf`):
+  ```sh
+  python werkzeuge/dokumente.py /srv/nas/share/claude-inbox/Bewerbungen
+  ```
+  Die Liste der veröffentlichten Dokumente steht in `DOKUMENTE` im Skript; neue Dokumente dort und in
+  `profile/index.html` eintragen.
+
+**Datenschutz-Regeln:** alles öffentlich außer der Wohnadresse (nur „Baden-Württemberg“). In amtlichen Dokumenten wird
+die Adresse nur geschwärzt, nie Text eingefügt. Scans mit Adresse werden gerastert und in den Pixeln geschwärzt (die
+Originalseite fällt weg). Metadaten werden entfernt. Nie veröffentlichen: Personalausweis, Führerschein, Anschreiben.
+Nach jeder Änderung jede geschwärzte Seite gerendert ansehen und per Textsuche auf Straße/PLZ/Ort prüfen.
+
 ## Eigene Domain
 
 1. Beim Domain-Anbieter eintragen:
