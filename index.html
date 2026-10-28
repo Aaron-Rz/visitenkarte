@@ -73,8 +73,8 @@
   .portrait {
     display: block;
     flex: none;
-    width: 104px;
-    height: 104px;
+    width: 140px;
+    height: 140px;
     margin: 0 auto;
     border-radius: 50%;
     object-fit: cover;
@@ -83,8 +83,8 @@
   }
 
   h1 {
-    margin: 24px 0 0;
-    font: 500 44px/1.05 "Crimson Pro", "Times New Roman", serif;
+    margin: 28px 0 0;
+    font: 500 52px/1.05 "Crimson Pro", "Times New Roman", serif;
     letter-spacing: -0.005em;
   }
   .titel {
@@ -156,6 +156,12 @@
   }
   .direkt a:focus-visible { border-radius: 4px; }
 
+  /* niedrige Bildschirme (iPhone SE mit Safari-Leisten): alles ohne Scrollen */
+  @media (max-height: 600px) {
+    .portrait { width: 116px; height: 116px; }
+    h1 { margin-top: 20px; font-size: 46px; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .knopf, .direkt a { transition: none; }
     .knopf:active { transform: none; }
@@ -164,7 +170,7 @@
 </head>
 <body ontouchstart="">
 <main>
-  <img class="portrait" src="profil.jpg" alt="Portrait of Aaron Ratz" width="104" height="104">
+  <img class="portrait" src="profil.jpg" alt="Portrait of Aaron Ratz" width="140" height="140">
 
   <h1>Aaron Ratz</h1>
   <p class="titel">Marketing, AI &amp; Automation</p>
