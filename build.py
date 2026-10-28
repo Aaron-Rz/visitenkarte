@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Erzeugt aaron-ratz.vcf (und optional profil.jpg) aus daten.json.
 
-  python3 build.py                 # nur vCard neu bauen
-  python3 build.py FOTO.jpg        # Foto zuschneiden, dann vCard bauen
+  python3 build.py                          # nur vCard neu bauen
+  python3 build.py FOTO.jpg                 # mittiges Quadrat zuschneiden, dann vCard bauen
+  python3 build.py FOTO.jpg X:Y:KANTE       # eigenes Quadrat (Pixel im Original)
 
-Zuschnitt läuft über ffmpeg (mittiges Quadrat, 480 px, JPEG).
+Zuschnitt läuft über ffmpeg (Quadrat, 480 px, JPEG).
 """
 import base64
 import json
@@ -19,8 +20,12 @@ VCF = HIER / "aaron-ratz.vcf"
 MAX_FOTO_BYTES = 80_000
 
 
-def foto_zuschneiden(quelle: Path) -> None:
-    quadrat = "crop='min(iw,ih)':'min(iw,ih)'"
+def foto_zuschneiden(quelle: Path, ausschnitt: str | None = None) -> None:
+    if ausschnitt:
+        x, y, kante = ausschnitt.split(":")
+        quadrat = f"crop={kante}:{kante}:{x}:{y}"
+    else:
+        quadrat = "crop='min(iw,ih)':'min(iw,ih)'"
     # Qualität schrittweise senken, bis das Foto klein genug für die vCard ist
     for q in (3, 5, 7, 9, 12):
         subprocess.run(
@@ -78,7 +83,7 @@ def vcard_bauen(d: dict) -> str:
 
 def main() -> None:
     if len(sys.argv) > 1:
-        foto_zuschneiden(Path(sys.argv[1]))
+        foto_zuschneiden(Path(sys.argv[1]), sys.argv[2] if len(sys.argv) > 2 else None)
     daten = json.loads((HIER / "daten.json").read_text(encoding="utf-8"))
     VCF.write_bytes(vcard_bauen(daten).encode("utf-8"))
     print(f"{VCF.name}: {VCF.stat().st_size // 1024} KB, Foto: {'ja' if FOTO.exists() else 'nein'}")
