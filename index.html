@@ -149,7 +149,29 @@
     font-size: 14px;
   }
 
-  a:focus-visible {
+  /* dezent: Weitergeben ist eine Nebenaktion, kein dritter großer Knopf */
+  .teilen {
+    align-self: center;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    margin-top: 16px;
+    padding: 0 12px;
+    border: 0;
+    background: none;
+    color: var(--leise);
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: opacity .1s ease, color .15s ease;
+  }
+  .teilen svg { width: 16px; height: 16px; }
+  .teilen:active { opacity: .6; }
+  @media (hover: hover) { .teilen:hover { color: var(--text); } }
+
+  a:focus-visible, .teilen:focus-visible {
     outline: 2px solid var(--text);
     outline-offset: 3px;
     border-radius: 10px;
@@ -158,12 +180,16 @@
 
   /* niedrige Bildschirme (iPhone SE mit Safari-Leisten): alles ohne Scrollen */
   @media (max-height: 600px) {
-    .portrait { width: 116px; height: 116px; }
-    h1 { margin-top: 20px; font-size: 46px; }
+    main { padding-top: max(16px, env(safe-area-inset-top)); padding-bottom: max(12px, env(safe-area-inset-bottom)); }
+    .portrait { width: 100px; height: 100px; }
+    h1 { margin-top: 16px; font-size: 42px; }
+    .aktionen { margin-top: 24px; }
+    .direkt { margin-top: 24px; }
+    .teilen { margin-top: 8px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .knopf, .direkt a { transition: none; }
+    .knopf, .direkt a, .teilen { transition: none; }
     .knopf:active { transform: none; }
   }
 </style>
@@ -177,7 +203,7 @@
 
   <div class="aktionen">
     <!-- ohne download-Attribut, damit iOS-Safari direkt „Kontakt hinzufügen“ zeigt; ?v= bei jeder vCard-Änderung erhöhen, sonst liefert der Cache die alte Datei -->
-    <a class="knopf speichern" href="aaron-ratz.vcf?v=3">Save contact</a>
+    <a class="knopf speichern" href="aaron-ratz.vcf?v=4">Save contact</a>
     <a class="knopf linkedin" href="https://www.linkedin.com/in/aaron-ratz" rel="noopener">Connect on LinkedIn</a>
   </div>
 
@@ -185,6 +211,30 @@
     <li><a href="tel:+4915901690347"><span>Phone</span>+49 1590 1690347</a></li>
     <li><a href="mailto:aaron.ratz@icloud.com"><span>Email</span>aaron.ratz@icloud.com</a></li>
   </ul>
+
+  <button class="teilen" type="button" aria-live="polite">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>
+    <span>Share this card</span>
+  </button>
 </main>
+<script>
+  // Teilt die Seiten-URL über das System-Teilen-Menü; ohne Web Share API (Desktop) wird der Link kopiert.
+  const teilen = document.querySelector(".teilen");
+  const beschriftung = teilen.querySelector("span");
+  teilen.addEventListener("click", async () => {
+    const url = location.origin + location.pathname;
+    if (navigator.share) {
+      try { await navigator.share({ title: "Aaron Ratz", text: "Aaron Ratz – Marketing, AI & Automation", url }); } catch (e) { /* abgebrochen */ }
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(url);
+      beschriftung.textContent = "Link copied";
+    } catch (e) {
+      beschriftung.textContent = url;
+    }
+    setTimeout(() => { beschriftung.textContent = "Share this card"; }, 2000);
+  });
+</script>
 </body>
 </html>

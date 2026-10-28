@@ -35,12 +35,35 @@ def foto_zuschneiden(quelle: Path, ausschnitt: str | None = None) -> None:
         )
         if FOTO.stat().st_size <= MAX_FOTO_BYTES:
             break
+    FOTO.write_bytes(jpeg_bereinigen(FOTO.read_bytes()))
     subprocess.run(
         ["ffmpeg", "-y", "-loglevel", "error", "-i", str(FOTO),
          "-vf", "scale=180:180", str(ICON)],
         check=True,
     )
     print(f"profil.jpg: {FOTO.stat().st_size // 1024} KB")
+
+
+def jpeg_bereinigen(jpeg: bytes) -> bytes:
+    """Entfernt Metadaten-Segmente (APP1–APP15, z. B. EXIF/ICC, und COM); JFIF-Kopf (APP0) und Bilddaten bleiben.
+
+    Manche vCard-Importe sind bei eingebetteten Fotos empfindlich; ein schlichtes Baseline-JPEG ist am sichersten.
+    """
+    if jpeg[:2] != b"\xff\xd8":
+        raise ValueError("kein JPEG")
+    raus, i = bytearray(b"\xff\xd8"), 2
+    while i < len(jpeg):
+        if jpeg[i] != 0xFF:
+            raise ValueError(f"unerwartetes Byte an Position {i}")
+        marker = jpeg[i + 1]
+        if marker == 0xDA:  # Start of Scan: Rest sind Bilddaten
+            raus += jpeg[i:]
+            break
+        laenge = int.from_bytes(jpeg[i + 2:i + 4], "big")
+        if not (0xE1 <= marker <= 0xEF or marker == 0xFE):
+            raus += jpeg[i:i + 2 + laenge]
+        i += 2 + laenge
+    return bytes(raus)
 
 
 def escape(wert: str) -> str:
@@ -72,12 +95,13 @@ def vcard_bauen(d: dict) -> str:
         f"TEL;TYPE=CELL,VOICE:{d['telefon']}",
         f"EMAIL;TYPE=INTERNET,PREF:{d['email']}",
         # bewusst kein URL-Feld: iOS zeigte LinkedIn sonst doppelt (Homepage + Social-Profil)
-        f"X-SOCIALPROFILE;TYPE=linkedin:{d['linkedin']}",
+        # iOS zeigt den TYPE-Wert als Dienstnamen an, daher „LinkedIn“ mit großem L
+        f"X-SOCIALPROFILE;TYPE=LinkedIn;x-user={d['linkedin'].rstrip('/').rsplit('/', 1)[-1]}:{d['linkedin']}",
     ]
     if d.get("notiz"):
         zeilen.append(f"NOTE:{escape(chr(10).join(d['notiz']))}")
     if FOTO.exists():
-        b64 = base64.b64encode(FOTO.read_bytes()).decode("ascii")
+        b64 = base64.b64encode(jpeg_bereinigen(FOTO.read_bytes())).decode("ascii")
         zeilen.append(f"PHOTO;ENCODING=b;TYPE=JPEG:{b64}")
     zeilen.append("END:VCARD")
     return "".join(falten(z) + "\r\n" for z in zeilen)
