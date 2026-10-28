@@ -30,7 +30,9 @@
     --text: #EDEEF0;
     --leise: #8B8F96;
     --linie: rgba(237, 238, 240, .12);
-    --rahmen: rgba(237, 238, 240, .28);
+    /* Rahmen von Bedienelementen: mind. 3:1 zum Hintergrund (WCAG 1.4.11) */
+    --rahmen: rgba(237, 238, 240, .42);
+    --rahmen-hover: rgba(237, 238, 240, .64);
     color-scheme: dark;
   }
 
@@ -86,15 +88,15 @@
     letter-spacing: -0.005em;
   }
   .titel {
-    margin: 6px 0 0;
+    margin: 8px 0 0;
     color: var(--leise);
-    font-size: 15px;
   }
 
+  /* Abstände auf 4-px-Raster; Blöcke (Kopf, Knöpfe, Kontakt) jeweils 32 px auseinander */
   .aktionen {
     margin-top: 32px;
     display: grid;
-    gap: 10px;
+    gap: 12px;
   }
   .knopf {
     display: flex;
@@ -109,14 +111,19 @@
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
-    transition: opacity .12s ease;
+    transition: transform .1s ease, opacity .1s ease, background-color .15s ease, box-shadow .15s ease;
   }
-  .knopf:active { opacity: .75; }
+  /* Antipp-Rückmeldung; greift auf iOS nur dank ontouchstart am body */
+  .knopf:active { transform: scale(.98); opacity: .8; }
   .speichern { background: var(--text); color: var(--matt); }
   .linkedin { color: var(--text); box-shadow: inset 0 0 0 1px var(--rahmen); }
+  @media (hover: hover) {
+    .speichern:hover { background: #FFFFFF; }
+    .linkedin:hover { box-shadow: inset 0 0 0 1px var(--rahmen-hover); }
+  }
 
   .direkt {
-    margin: 28px 0 0;
+    margin: 32px 0 0;
     padding: 0;
     list-style: none;
   }
@@ -128,12 +135,14 @@
     align-items: baseline;
     justify-content: space-between;
     gap: 16px;
-    padding: 13px 0;
+    padding: 12px 0;
     color: var(--text);
     text-decoration: none;
     overflow-wrap: anywhere;
     -webkit-tap-highlight-color: transparent;
+    transition: opacity .1s ease;
   }
+  .direkt a:active { opacity: .6; }
   .direkt span {
     flex: none;
     color: var(--leise);
@@ -145,13 +154,15 @@
     outline-offset: 3px;
     border-radius: 10px;
   }
+  .direkt a:focus-visible { border-radius: 4px; }
 
   @media (prefers-reduced-motion: reduce) {
-    .knopf { transition: none; }
+    .knopf, .direkt a { transition: none; }
+    .knopf:active { transform: none; }
   }
 </style>
 </head>
-<body>
+<body ontouchstart="">
 <main>
   <img class="portrait" src="profil.jpg" alt="Portrait of Aaron Ratz" width="104" height="104">
 
