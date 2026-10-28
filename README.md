@@ -13,8 +13,15 @@ Statisch, ohne Tracking und Cookies, ohne externe Anfragen (die Schrift liegt se
 ## Foto setzen oder ändern
 
 ```sh
-python3 build.py /pfad/zum/foto.jpg   # mittig quadratisch zuschneiden, 480 px, ins vCard einbetten
+python3 build.py /pfad/zum/foto.jpg              # mittig quadratisch zuschneiden, 480 px, ins vCard einbetten
+python3 build.py /pfad/zum/foto.jpg 180:320:720  # eigener Ausschnitt: x:y:kantenlänge in Pixeln des Originals
 ```
+
+Aktuelles Foto: `WhatsApp Image 2025-12-21 at 12.17.17 (1).jpeg` (1066×1600) mit Ausschnitt `180:320:720`.
+
+Design nach der physischen Karte: mattschwarz, Name als silberne Serifenschrift (Crimson Pro, selbst gehostet).
+Der „Kontakt speichern“-Link hat bewusst kein `download`-Attribut, sonst legt iOS-Safari die vCard in „Dateien“ ab,
+statt direkt „Kontakt hinzufügen“ zu zeigen.
 
 Braucht `ffmpeg`. HEIC vorher in JPEG umwandeln.
 

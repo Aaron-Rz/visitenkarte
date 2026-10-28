@@ -6,81 +6,90 @@
 <title>Aaron Ratz</title>
 <meta name="description" content="Aaron Ratz – Marketing, KI & Automatisierung. Kontakt speichern oder auf LinkedIn vernetzen.">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#F5F6FB" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0B1022" media="(prefers-color-scheme: dark)">
+<meta name="format-detection" content="telephone=no, email=no, address=no">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0E0F12">
+<meta name="apple-mobile-web-app-title" content="Aaron Ratz">
 <meta property="og:title" content="Aaron Ratz">
 <meta property="og:description" content="Marketing, KI & Automatisierung">
 <meta property="og:type" content="profile">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232B3CE6'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-weight='800' font-size='28' text-anchor='middle' fill='white'%3EAR%3C/text%3E%3C/svg%3E">
-<link rel="preload" href="fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2314161A'/%3E%3Ctext x='32' y='42' font-family='Times New Roman,serif' font-weight='700' font-size='28' text-anchor='middle' fill='%23C9CCD1'%3EAR%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="fonts/crimson-pro.woff2" as="font" type="font/woff2" crossorigin>
 <style>
   @font-face {
-    font-family: "Bricolage";
-    src: url("fonts/bricolage.woff2") format("woff2");
-    font-weight: 200 800;
+    font-family: "Crimson Pro";
+    src: url("fonts/crimson-pro.woff2") format("woff2");
+    font-weight: 200 900;
     font-display: swap;
   }
 
+  /* Farben nach der Karte: mattes Schwarz, gravierter Silberton */
   :root {
-    --paper: #F5F6FB;
-    --ink: #0F1733;
-    --muted: #5A6382;
-    --line: #D9DDEB;
-    --accent: #2B3CE6;
-    --on-accent: #FFFFFF;
-    --monogram: #2B3CE6;
-    color-scheme: light dark;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --paper: #0B1022;
-      --ink: #EEF0FA;
-      --muted: #98A1C2;
-      --line: #252E4E;
-      --accent: #8E9AFF;
-      --on-accent: #0B1022;
-      --monogram: #1E2A8F;
-    }
+    --matt: #0E0F12;
+    --matt-licht: #1B1D22;
+    --silber: #C9CCD1;
+    --silber-hell: #E8EAED;
+    --silber-dunkel: #8E9298;
+    --linie: #2A2D33;
+    --text-leise: #8A8E95;
+    color-scheme: dark;
   }
 
   * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    background: var(--matt);
+  }
   body {
     margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font: 400 17px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--silber);
+    /* leichter Lichtschimmer wie auf der matten Kartenoberfläche */
+    background:
+      radial-gradient(120% 70% at 50% 0%, var(--matt-licht) 0%, transparent 70%),
+      var(--matt);
+    font: 400 17px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
 
   main {
-    max-width: 440px;
+    max-width: 420px;
+    min-height: 100vh;
     min-height: 100svh;
     margin: 0 auto;
-    padding: max(16px, env(safe-area-inset-top)) 16px max(28px, env(safe-area-inset-bottom));
+    padding:
+      max(40px, env(safe-area-inset-top))
+      max(20px, env(safe-area-inset-right))
+      max(32px, env(safe-area-inset-bottom))
+      max(20px, env(safe-area-inset-left));
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    text-align: center;
   }
 
-  /* Portrait mit Monogramm dahinter, falls (noch) kein Foto da ist */
   .portrait {
+    width: clamp(132px, 40vw, 168px);
+    aspect-ratio: 1;
+    margin: 0 auto;
+    padding: 5px;
+    border-radius: 50%;
+    border: 1px solid rgba(201, 204, 209, .45);
+  }
+  .portrait-innen {
     position: relative;
-    aspect-ratio: 4 / 5;
-    max-height: 58svh;
     width: 100%;
-    border-radius: 28px;
+    height: 100%;
+    border-radius: 50%;
     overflow: hidden;
-    background: var(--monogram);
+    background: var(--matt-licht);
     display: grid;
     place-items: center;
   }
-  .portrait .monogram {
-    font: 800 clamp(120px, 42vw, 190px)/1 "Bricolage", system-ui, sans-serif;
-    letter-spacing: -0.06em;
-    color: #FFFFFF;
-    opacity: .92;
-    padding-bottom: 18%;
+  .monogramm {
+    font: 600 clamp(44px, 13vw, 56px)/1 "Crimson Pro", "Times New Roman", serif;
+    color: var(--silber-dunkel);
   }
   .portrait img {
     position: absolute;
@@ -88,84 +97,104 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    animation: einblenden .6s ease-out both;
-  }
-  /* Übergang ins Papier, damit der Name lesbar über der Fotokante steht */
-  .portrait::after {
-    content: "";
-    position: absolute;
-    inset: auto 0 0 0;
-    height: 38%;
-    background: linear-gradient(to bottom, transparent, var(--paper));
   }
 
   h1 {
-    position: relative;
-    z-index: 1;
-    margin: -0.98em 0 0;
-    padding: 0 4px;
-    font: 800 clamp(64px, 21vw, 96px)/.84 "Bricolage", system-ui, sans-serif;
-    letter-spacing: -0.045em;
+    margin: 28px 0 0;
+    font: 700 clamp(46px, 14.5vw, 60px)/1 "Crimson Pro", "Times New Roman", serif;
+    letter-spacing: -0.01em;
+    color: var(--silber);
   }
-  h1 span { display: block; }
+  /* gravierter Metall-Look; ohne Unterstützung bleibt die Schrift einfarbig silbern */
+  @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    h1 {
+      background: linear-gradient(180deg, var(--silber-hell) 0%, var(--silber) 45%, var(--silber-dunkel) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  @media (prefers-contrast: more) {
+    h1 { background: none; -webkit-text-fill-color: var(--silber-hell); color: var(--silber-hell); }
+  }
 
   .titel {
-    margin: 14px 4px 0;
-    color: var(--muted);
-    font-size: 18px;
+    margin: 10px 0 0;
+    color: var(--text-leise);
+    font-size: 16px;
+    letter-spacing: .01em;
   }
 
   .aktionen {
-    margin-top: 28px;
+    margin-top: 36px;
     display: grid;
-    gap: 10px;
+    gap: 12px;
   }
   .knopf {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    min-height: 58px;
+    min-height: 56px;
     padding: 0 20px;
-    border-radius: 16px;
-    font-weight: 650;
-    font-size: 18px;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 17px;
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
-    transition: transform .12s ease;
+    -webkit-touch-callout: none;
+    touch-action: manipulation;
+    transition: transform .12s ease, opacity .12s ease;
   }
-  .knopf:active { transform: scale(.98); }
-  .knopf svg { width: 22px; height: 22px; flex: none; }
-  .speichern { background: var(--accent); color: var(--on-accent); }
-  .linkedin { color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
+  .knopf:active { transform: scale(.98); opacity: .85; }
+  .knopf svg { width: 21px; height: 21px; flex: none; }
+  .speichern {
+    background: linear-gradient(180deg, var(--silber-hell), var(--silber));
+    color: var(--matt);
+  }
+  .linkedin {
+    color: var(--silber-hell);
+    box-shadow: inset 0 0 0 1px rgba(201, 204, 209, .5);
+  }
 
   .direkt {
-    margin: 26px 4px 0;
-    padding: 0;
+    margin: 32px 0 0;
+    padding: 20px 0 0;
     list-style: none;
-    border-top: 1px solid var(--line);
+    border-top: 1px solid var(--linie);
+    display: grid;
+    gap: 2px;
   }
   .direkt a {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 14px;
-    min-height: 54px;
-    border-bottom: 1px solid var(--line);
-    color: var(--ink);
+    gap: 10px;
+    min-height: 44px;
+    padding: 0 8px;
+    color: var(--silber);
     text-decoration: none;
     overflow-wrap: anywhere;
+    -webkit-tap-highlight-color: transparent;
   }
-  .direkt svg { width: 20px; height: 20px; flex: none; color: var(--muted); }
+  .direkt svg { width: 18px; height: 18px; flex: none; color: var(--silber-dunkel); }
 
   a:focus-visible {
-    outline: 3px solid var(--accent);
+    outline: 2px solid var(--silber-hell);
     outline-offset: 3px;
-    border-radius: 16px;
+    border-radius: 14px;
   }
 
-  @keyframes einblenden { from { opacity: 0; } }
+  /* kleine iPhones (SE): alles auf einen Bildschirm */
+  @media (max-height: 640px) {
+    main { padding-top: max(20px, env(safe-area-inset-top)); padding-bottom: max(16px, env(safe-area-inset-bottom)); }
+    .portrait { width: 116px; }
+    h1 { margin-top: 18px; }
+    .aktionen { margin-top: 24px; gap: 10px; }
+    .knopf { min-height: 52px; }
+    .direkt { margin-top: 20px; padding-top: 12px; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .portrait img { animation: none; }
     .knopf { transition: none; }
   }
 </style>
@@ -173,15 +202,18 @@
 <body>
 <main>
   <div class="portrait">
-    <span class="monogram" aria-hidden="true">AR</span>
-    <img src="profil.jpg" alt="Porträt von Aaron Ratz" width="480" height="480" onerror="this.remove()">
+    <div class="portrait-innen">
+      <span class="monogramm" aria-hidden="true">AR</span>
+      <img src="profil.jpg" alt="Porträt von Aaron Ratz" width="480" height="480" onerror="this.remove()">
+    </div>
   </div>
 
-  <h1><span>Aaron</span><span>Ratz</span></h1>
+  <h1>Aaron Ratz</h1>
   <p class="titel">Marketing, KI &amp; Automatisierung</p>
 
   <div class="aktionen">
-    <a class="knopf speichern" href="aaron-ratz.vcf" download="Aaron Ratz.vcf">
+    <!-- bewusst ohne download-Attribut: so zeigt iOS-Safari direkt „Kontakt hinzufügen“ statt die Datei in „Dateien“ zu laden -->
+    <a class="knopf speichern" href="aaron-ratz.vcf">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="8" r="4"/><path d="M2.5 21a7.5 7.5 0 0 1 13.4-4.6"/><path d="M19 15v6M16 18h6"/></svg>
       Kontakt speichern
     </a>
