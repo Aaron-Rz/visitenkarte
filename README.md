@@ -27,8 +27,11 @@ Braucht `ffmpeg`. HEIC vorher in JPEG umwandeln.
 
 ## Daten ändern
 
-`daten.json` anpassen, `python3 build.py` laufen lassen. Telefon und E-Mail stehen zusätzlich in `index.html`
-(die Links unten auf der Seite), dort mit ändern.
+`daten.json` anpassen (inkl. `notiz`: Skills auf Englisch, dann Deutsch), `python3 build.py` laufen lassen.
+Telefon und E-Mail stehen zusätzlich in `index.html` (die Links unten auf der Seite), dort mit ändern.
+
+**Nach jeder vCard-Änderung** in `index.html` die Versionsnummer am Link erhöhen (`aaron-ratz.vcf?v=3` → `?v=4`).
+Sonst liefern Safari bzw. der GitHub-Cache (10 Minuten) noch die alte Datei aus.
 
 ## Eigene Domain
 

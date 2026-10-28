@@ -1,20 +1,20 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Aaron Ratz</title>
-<meta name="description" content="Aaron Ratz – Marketing, KI & Automatisierung. Kontakt speichern oder auf LinkedIn vernetzen.">
+<meta name="description" content="Aaron Ratz – Marketing, AI & Automation. Save my contact or connect on LinkedIn.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="format-detection" content="telephone=no, email=no, address=no">
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#0E0F12">
 <meta name="apple-mobile-web-app-title" content="Aaron Ratz">
 <meta property="og:title" content="Aaron Ratz">
-<meta property="og:description" content="Marketing, KI & Automatisierung">
+<meta property="og:description" content="Marketing, AI & Automation">
 <meta property="og:type" content="profile">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2314161A'/%3E%3Ctext x='32' y='42' font-family='Times New Roman,serif' font-weight='700' font-size='28' text-anchor='middle' fill='%23C9CCD1'%3EAR%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230E0F12'/%3E%3Ctext x='32' y='42' font-family='Times New Roman,serif' font-size='28' text-anchor='middle' fill='%23EDEEF0'%3EAR%3C/text%3E%3C/svg%3E">
 <link rel="preload" href="fonts/crimson-pro.woff2" as="font" type="font/woff2" crossorigin>
 <style>
   @font-face {
@@ -24,15 +24,13 @@
     font-display: swap;
   }
 
-  /* Farben nach der Karte: mattes Schwarz, gravierter Silberton */
+  /* Farben nach der Karte: mattes Schwarz, Silber */
   :root {
     --matt: #0E0F12;
-    --matt-licht: #1B1D22;
-    --silber: #C9CCD1;
-    --silber-hell: #E8EAED;
-    --silber-dunkel: #8E9298;
-    --linie: #2A2D33;
-    --text-leise: #8A8E95;
+    --text: #EDEEF0;
+    --leise: #8B8F96;
+    --linie: rgba(237, 238, 240, .12);
+    --rahmen: rgba(237, 238, 240, .28);
     color-scheme: dark;
   }
 
@@ -41,157 +39,108 @@
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     background: var(--matt);
+    /* kein Nachfedern, wenn die Seite ohnehin auf den Bildschirm passt */
+    overscroll-behavior: none;
   }
   body {
     margin: 0;
-    color: var(--silber);
-    /* leichter Lichtschimmer wie auf der matten Kartenoberfläche */
-    background:
-      radial-gradient(120% 70% at 50% 0%, var(--matt-licht) 0%, transparent 70%),
-      var(--matt);
-    font: 400 17px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--matt);
+    color: var(--text);
+    font: 400 16px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
+    overscroll-behavior: none;
   }
 
   main {
-    max-width: 420px;
+    max-width: 400px;
     min-height: 100vh;
     min-height: 100svh;
     margin: 0 auto;
     padding:
-      max(40px, env(safe-area-inset-top))
-      max(20px, env(safe-area-inset-right))
-      max(32px, env(safe-area-inset-bottom))
-      max(20px, env(safe-area-inset-left));
+      max(24px, env(safe-area-inset-top))
+      max(24px, env(safe-area-inset-right))
+      max(24px, env(safe-area-inset-bottom))
+      max(24px, env(safe-area-inset-left));
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
   }
 
+  /* feste Breite und Höhe statt aspect-ratio: Safari hat das Bild sonst im Flex-Layout verzerrt */
   .portrait {
-    width: clamp(132px, 40vw, 168px);
-    aspect-ratio: 1;
-    margin: 0 auto;
-    padding: 5px;
+    display: block;
+    flex: none;
+    width: 96px;
+    height: 96px;
     border-radius: 50%;
-    border: 1px solid rgba(201, 204, 209, .45);
-  }
-  .portrait-innen {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    overflow: hidden;
-    background: var(--matt-licht);
-    display: grid;
-    place-items: center;
-  }
-  .monogramm {
-    font: 600 clamp(44px, 13vw, 56px)/1 "Crimson Pro", "Times New Roman", serif;
-    color: var(--silber-dunkel);
-  }
-  .portrait img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
     object-fit: cover;
+    background: #1B1D22;
+    box-shadow: 0 0 0 1px var(--rahmen);
   }
 
   h1 {
-    margin: 28px 0 0;
-    font: 700 clamp(46px, 14.5vw, 60px)/1 "Crimson Pro", "Times New Roman", serif;
-    letter-spacing: -0.01em;
-    color: var(--silber);
+    margin: 24px 0 0;
+    font: 500 44px/1.05 "Crimson Pro", "Times New Roman", serif;
+    letter-spacing: -0.005em;
   }
-  /* gravierter Metall-Look; ohne Unterstützung bleibt die Schrift einfarbig silbern */
-  @supports ((-webkit-background-clip: text) or (background-clip: text)) {
-    h1 {
-      background: linear-gradient(180deg, var(--silber-hell) 0%, var(--silber) 45%, var(--silber-dunkel) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-  }
-  @media (prefers-contrast: more) {
-    h1 { background: none; -webkit-text-fill-color: var(--silber-hell); color: var(--silber-hell); }
-  }
-
   .titel {
-    margin: 10px 0 0;
-    color: var(--text-leise);
-    font-size: 16px;
-    letter-spacing: .01em;
+    margin: 6px 0 0;
+    color: var(--leise);
+    font-size: 15px;
   }
 
   .aktionen {
-    margin-top: 36px;
+    margin-top: 32px;
     display: grid;
-    gap: 12px;
+    gap: 10px;
   }
   .knopf {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    min-height: 56px;
+    min-height: 52px;
     padding: 0 20px;
-    border-radius: 14px;
+    border-radius: 10px;
+    font-size: 16px;
     font-weight: 600;
-    font-size: 17px;
+    letter-spacing: .005em;
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
     touch-action: manipulation;
-    transition: transform .12s ease, opacity .12s ease;
+    transition: opacity .12s ease;
   }
-  .knopf:active { transform: scale(.98); opacity: .85; }
-  .knopf svg { width: 21px; height: 21px; flex: none; }
-  .speichern {
-    background: linear-gradient(180deg, var(--silber-hell), var(--silber));
-    color: var(--matt);
-  }
-  .linkedin {
-    color: var(--silber-hell);
-    box-shadow: inset 0 0 0 1px rgba(201, 204, 209, .5);
-  }
+  .knopf:active { opacity: .75; }
+  .speichern { background: var(--text); color: var(--matt); }
+  .linkedin { color: var(--text); box-shadow: inset 0 0 0 1px var(--rahmen); }
 
   .direkt {
-    margin: 32px 0 0;
-    padding: 20px 0 0;
+    margin: 28px 0 0;
+    padding: 0;
     list-style: none;
-    border-top: 1px solid var(--linie);
-    display: grid;
-    gap: 2px;
   }
+  .direkt li { border-top: 1px solid var(--linie); }
+  .direkt li:last-child { border-bottom: 1px solid var(--linie); }
   .direkt a {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    min-height: 44px;
-    padding: 0 8px;
-    color: var(--silber);
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 13px 0;
+    color: var(--text);
     text-decoration: none;
     overflow-wrap: anywhere;
     -webkit-tap-highlight-color: transparent;
   }
-  .direkt svg { width: 18px; height: 18px; flex: none; color: var(--silber-dunkel); }
-
-  a:focus-visible {
-    outline: 2px solid var(--silber-hell);
-    outline-offset: 3px;
-    border-radius: 14px;
+  .direkt span {
+    flex: none;
+    width: 48px;
+    color: var(--leise);
+    font-size: 14px;
   }
 
-  /* kleine iPhones (SE): alles auf einen Bildschirm */
-  @media (max-height: 640px) {
-    main { padding-top: max(20px, env(safe-area-inset-top)); padding-bottom: max(16px, env(safe-area-inset-bottom)); }
-    .portrait { width: 116px; }
-    h1 { margin-top: 18px; }
-    .aktionen { margin-top: 24px; gap: 10px; }
-    .knopf { min-height: 52px; }
-    .direkt { margin-top: 20px; padding-top: 12px; }
+  a:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 3px;
+    border-radius: 10px;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -201,41 +150,20 @@
 </head>
 <body>
 <main>
-  <div class="portrait">
-    <div class="portrait-innen">
-      <span class="monogramm" aria-hidden="true">AR</span>
-      <img src="profil.jpg" alt="Porträt von Aaron Ratz" width="480" height="480" onerror="this.remove()">
-    </div>
-  </div>
+  <img class="portrait" src="profil.jpg" alt="Portrait of Aaron Ratz" width="96" height="96">
 
   <h1>Aaron Ratz</h1>
-  <p class="titel">Marketing, KI &amp; Automatisierung</p>
+  <p class="titel">Marketing, AI &amp; Automation</p>
 
   <div class="aktionen">
-    <!-- bewusst ohne download-Attribut: so zeigt iOS-Safari direkt „Kontakt hinzufügen“ statt die Datei in „Dateien“ zu laden -->
-    <a class="knopf speichern" href="aaron-ratz.vcf">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="8" r="4"/><path d="M2.5 21a7.5 7.5 0 0 1 13.4-4.6"/><path d="M19 15v6M16 18h6"/></svg>
-      Kontakt speichern
-    </a>
-    <a class="knopf linkedin" href="https://www.linkedin.com/in/aaron-ratz" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
-      Auf LinkedIn vernetzen
-    </a>
+    <!-- ohne download-Attribut, damit iOS-Safari direkt „Kontakt hinzufügen“ zeigt; ?v= bei jeder vCard-Änderung erhöhen, sonst liefert der Cache die alte Datei -->
+    <a class="knopf speichern" href="aaron-ratz.vcf?v=3">Save contact</a>
+    <a class="knopf linkedin" href="https://www.linkedin.com/in/aaron-ratz" rel="noopener">Connect on LinkedIn</a>
   </div>
 
   <ul class="direkt">
-    <li>
-      <a href="tel:+4915901690347">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
-        +49 1590 1690347
-      </a>
-    </li>
-    <li>
-      <a href="mailto:aaron.ratz@icloud.com">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
-        aaron.ratz@icloud.com
-      </a>
-    </li>
+    <li><a href="tel:+4915901690347"><span>Phone</span>+49 1590 1690347</a></li>
+    <li><a href="mailto:aaron.ratz@icloud.com"><span>Email</span>aaron.ratz@icloud.com</a></li>
   </ul>
 </main>
 </body>
