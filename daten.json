@@ -1,8 +1,21 @@
 {
   "vorname": "Aaron",
   "nachname": "Ratz",
-  "titel": "Marketing, KI & Automatisierung",
+  "titel": "Marketing, AI & Automation",
   "telefon": "+4915901690347",
   "email": "aaron.ratz@icloud.com",
-  "linkedin": "https://www.linkedin.com/in/aaron-ratz"
+  "linkedin": "https://www.linkedin.com/in/aaron-ratz",
+  "notiz": [
+    "Marketing, AI & Automation",
+    "• AI agents & workflow automation (n8n, LLMs) that take repetitive work off teams",
+    "• Performance marketing: Meta & Google Ads",
+    "• Video & photo production: Premiere Pro, DaVinci Resolve, After Effects",
+    "• Business student, Marketing Communication & Digital Marketing, Pforzheim University",
+    "",
+    "Marketing, KI & Automatisierung",
+    "• KI-Agenten & Workflow-Automatisierung (n8n, LLMs), die Teams wiederkehrende Arbeit abnehmen",
+    "• Performance-Marketing: Meta & Google Ads",
+    "• Video- & Fotoproduktion: Premiere Pro, DaVinci Resolve, After Effects",
+    "• BWL-Studium Marketingkommunikation & Digital Marketing, Hochschule Pforzheim"
+  ]
 }

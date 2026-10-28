@@ -2,11 +2,20 @@ BEGIN:VCARD
 VERSION:3.0
 N:Ratz;Aaron;;;
 FN:Aaron Ratz
-TITLE:Marketing\, KI & Automatisierung
+TITLE:Marketing\, AI & Automation
 TEL;TYPE=CELL,VOICE:+4915901690347
 EMAIL;TYPE=INTERNET,PREF:aaron.ratz@icloud.com
-URL:https://www.linkedin.com/in/aaron-ratz
 X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/aaron-ratz
+NOTE:Marketing\, AI & Automation\n• AI agents & workflow automation (n8n\
+ , LLMs) that take repetitive work off teams\n• Performance marketing: Me
+ ta & Google Ads\n• Video & photo production: Premiere Pro\, DaVinci Reso
+ lve\, After Effects\n• Business student\, Marketing Communication & Digi
+ tal Marketing\, Pforzheim University\n\nMarketing\, KI & Automatisierung\n
+ • KI-Agenten & Workflow-Automatisierung (n8n\, LLMs)\, die Teams wiederk
+ ehrende Arbeit abnehmen\n• Performance-Marketing: Meta & Google Ads\n•
+  Video- & Fotoproduktion: Premiere Pro\, DaVinci Resolve\, After Effects\n
+ • BWL-Studium Marketingkommunikation & Digital Marketing\, Hochschule Pf
+ orzheim
 PHOTO;ENCODING=b;TYPE=JPEG:/9j/4AAQSkZJRgABAgAAAQABAAD/4gHYSUNDX1BST0ZJTEUA
  AQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAA
  AAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA

@@ -71,9 +71,11 @@ def vcard_bauen(d: dict) -> str:
         f"TITLE:{escape(d['titel'])}",
         f"TEL;TYPE=CELL,VOICE:{d['telefon']}",
         f"EMAIL;TYPE=INTERNET,PREF:{d['email']}",
-        f"URL:{d['linkedin']}",
+        # bewusst kein URL-Feld: iOS zeigte LinkedIn sonst doppelt (Homepage + Social-Profil)
         f"X-SOCIALPROFILE;TYPE=linkedin:{d['linkedin']}",
     ]
+    if d.get("notiz"):
+        zeilen.append(f"NOTE:{escape(chr(10).join(d['notiz']))}")
     if FOTO.exists():
         b64 = base64.b64encode(FOTO.read_bytes()).decode("ascii")
         zeilen.append(f"PHOTO;ENCODING=b;TYPE=JPEG:{b64}")
