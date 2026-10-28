@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aaron Ratz</title>
+<meta name="description" content="Aaron Ratz – Marketing, KI & Automatisierung. Kontakt speichern oder auf LinkedIn vernetzen.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F5F6FB" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B1022" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Aaron Ratz">
+<meta property="og:description" content="Marketing, KI & Automatisierung">
+<meta property="og:type" content="profile">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232B3CE6'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-weight='800' font-size='28' text-anchor='middle' fill='white'%3EAR%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face {
+    font-family: "Bricolage";
+    src: url("fonts/bricolage.woff2") format("woff2");
+    font-weight: 200 800;
+    font-display: swap;
+  }
+
+  :root {
+    --paper: #F5F6FB;
+    --ink: #0F1733;
+    --muted: #5A6382;
+    --line: #D9DDEB;
+    --accent: #2B3CE6;
+    --on-accent: #FFFFFF;
+    --monogram: #2B3CE6;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #0B1022;
+      --ink: #EEF0FA;
+      --muted: #98A1C2;
+      --line: #252E4E;
+      --accent: #8E9AFF;
+      --on-accent: #0B1022;
+      --monogram: #1E2A8F;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 17px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  main {
+    max-width: 440px;
+    min-height: 100svh;
+    margin: 0 auto;
+    padding: max(16px, env(safe-area-inset-top)) 16px max(28px, env(safe-area-inset-bottom));
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Portrait mit Monogramm dahinter, falls (noch) kein Foto da ist */
+  .portrait {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    max-height: 58svh;
+    width: 100%;
+    border-radius: 28px;
+    overflow: hidden;
+    background: var(--monogram);
+    display: grid;
+    place-items: center;
+  }
+  .portrait .monogram {
+    font: 800 clamp(120px, 42vw, 190px)/1 "Bricolage", system-ui, sans-serif;
+    letter-spacing: -0.06em;
+    color: #FFFFFF;
+    opacity: .92;
+    padding-bottom: 18%;
+  }
+  .portrait img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: einblenden .6s ease-out both;
+  }
+  /* Übergang ins Papier, damit der Name lesbar über der Fotokante steht */
+  .portrait::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 38%;
+    background: linear-gradient(to bottom, transparent, var(--paper));
+  }
+
+  h1 {
+    position: relative;
+    z-index: 1;
+    margin: -0.98em 0 0;
+    padding: 0 4px;
+    font: 800 clamp(64px, 21vw, 96px)/.84 "Bricolage", system-ui, sans-serif;
+    letter-spacing: -0.045em;
+  }
+  h1 span { display: block; }
+
+  .titel {
+    margin: 14px 4px 0;
+    color: var(--muted);
+    font-size: 18px;
+  }
+
+  .aktionen {
+    margin-top: 28px;
+    display: grid;
+    gap: 10px;
+  }
+  .knopf {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 58px;
+    padding: 0 20px;
+    border-radius: 16px;
+    font-weight: 650;
+    font-size: 18px;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform .12s ease;
+  }
+  .knopf:active { transform: scale(.98); }
+  .knopf svg { width: 22px; height: 22px; flex: none; }
+  .speichern { background: var(--accent); color: var(--on-accent); }
+  .linkedin { color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
+
+  .direkt {
+    margin: 26px 4px 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--line);
+  }
+  .direkt a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 54px;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  }
+  .direkt svg { width: 20px; height: 20px; flex: none; color: var(--muted); }
+
+  a:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 16px;
+  }
+
+  @keyframes einblenden { from { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    .portrait img { animation: none; }
+    .knopf { transition: none; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="portrait">
+    <span class="monogram" aria-hidden="true">AR</span>
+    <img src="profil.jpg" alt="Porträt von Aaron Ratz" width="480" height="480" onerror="this.remove()">
+  </div>
+
+  <h1><span>Aaron</span><span>Ratz</span></h1>
+  <p class="titel">Marketing, KI &amp; Automatisierung</p>
+
+  <div class="aktionen">
+    <a class="knopf speichern" href="aaron-ratz.vcf" download="Aaron Ratz.vcf">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="8" r="4"/><path d="M2.5 21a7.5 7.5 0 0 1 13.4-4.6"/><path d="M19 15v6M16 18h6"/></svg>
+      Kontakt speichern
+    </a>
+    <a class="knopf linkedin" href="https://www.linkedin.com/in/aaron-ratz" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+      Auf LinkedIn vernetzen
+    </a>
+  </div>
+
+  <ul class="direkt">
+    <li>
+      <a href="tel:+4915901690347">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+        +49 1590 1690347
+      </a>
+    </li>
+    <li>
+      <a href="mailto:aaron.ratz@icloud.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+        aaron.ratz@icloud.com
+      </a>
+    </li>
+  </ul>
+</main>
+</body>
+</html>
