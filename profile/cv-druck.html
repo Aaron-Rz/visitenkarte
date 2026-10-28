@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CV – Aaron Ratz</title>
+<meta name="robots" content="noindex, nofollow">
+<!-- Druckvorlage für die Lebenslauf-PDFs (werkzeuge/lebenslauf-pdf.js); Sprache per ?lang=en|de -->
+<style>
+  @font-face {
+    font-family: "Crimson Pro";
+    src: url("../fonts/crimson-pro.woff2") format("woff2");
+    font-weight: 200 900;
+  }
+  /* Ziel: eine A4-Seite */
+  @page { size: A4; margin: 12mm 16mm; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    color: #16181C;
+    font: 400 9.5pt/1.35 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-print-color-adjust: exact;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #C9CCD1;
+  }
+  h1 { margin: 0; font: 500 28pt/1 "Crimson Pro", "Times New Roman", serif; }
+  .titel { margin: 4px 0 10px; color: #5A5F68; font-size: 11pt; }
+  .kontakt { margin: 0; padding: 0; list-style: none; color: #3A3E45; font-size: 9pt; }
+  .kontakt li { display: inline; white-space: nowrap; }
+  .kontakt li + li::before { content: "  |  "; color: #A4A8AE; white-space: pre; }
+  header img { width: 22mm; height: 22mm; border-radius: 50%; object-fit: cover; }
+
+  /* Reihenfolge per Grid; Zertifikate zweispaltig, damit alles auf eine Seite passt */
+  #lebenslauf {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: "profil" "erfahrung" "bildung" "faehigkeiten" "zertifikate";
+    align-items: start;
+  }
+  #lebenslauf > .cv-profil { grid-area: profil; }
+  #lebenslauf > section:nth-of-type(1) { grid-area: erfahrung; }
+  #lebenslauf > section:nth-of-type(2) { grid-area: bildung; }
+  #lebenslauf > section:nth-of-type(3) { grid-area: faehigkeiten; }
+  #lebenslauf > section:nth-of-type(4) { grid-area: zertifikate; }
+  .cv-profil { margin: 10px 0 0; font-size: 10pt; }
+  .cv-abschnitt { margin-top: 9px; break-inside: avoid-page; }
+  .cv-abschnitt:last-child { break-inside: auto; }
+  .cv-abschnitt h3 {
+    margin: 0 0 5px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #E2E4E8;
+    font: 500 13pt/1.2 "Crimson Pro", "Times New Roman", serif;
+    break-after: avoid;
+  }
+  .stationen { margin: 0; padding: 0; list-style: none; }
+  .station { display: grid; grid-template-columns: 34mm 1fr; gap: 0 12px; padding: 3px 0; break-inside: avoid; }
+  .station .zeit { margin: 0; color: #5A5F68; font-variant-numeric: tabular-nums; }
+  .station .rolle { margin: 0; font-weight: 600; }
+  .station .ort { margin: 0; color: #5A5F68; }
+  .punkte { margin: 2px 0 0; padding-left: 14px; list-style: disc; }
+  .faehigkeiten { display: grid; grid-template-columns: 34mm 1fr; gap: 2px 12px; margin: 0; }
+  .faehigkeiten dt { color: #5A5F68; }
+  .faehigkeiten dd { margin: 0; }
+  .liste { margin: 0; }
+  /* Grid statt CSS-Spalten: Chromium misst Spalten beim Seitenumbruch unbalanciert und schiebt sie sonst auf Seite 2 */
+  .zertifikate { display: grid; grid-template-columns: 1fr 1fr; gap: 1px 28px; margin: 0; padding-left: 14px; }
+  /* „Stand“ am unteren Seitenrand, nimmt im Fluss keinen Platz weg */
+  footer { position: fixed; right: 0; bottom: 0; color: #8B8F96; font-size: 8pt; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Aaron Ratz</h1>
+    <p class="titel" id="titel"></p>
+    <ul class="kontakt" id="kontakt"></ul>
+  </div>
+  <img src="../profil.jpg" alt="">
+</header>
+<div id="lebenslauf"></div>
+<footer id="stand"></footer>
+<script type="module">
+  import { lebenslaufLaden, lebenslaufRendern } from "./lebenslauf.js";
+  const sprache = new URLSearchParams(location.search).get("lang") === "de" ? "de" : "en";
+  document.documentElement.lang = sprache;
+  const daten = await lebenslaufLaden();
+  document.querySelector("#titel").textContent = daten.titel[sprache];
+  for (const wert of [daten.ort[sprache], daten.telefon, daten.email, daten.linkedin]) {
+    const li = document.createElement("li");
+    li.textContent = wert;
+    document.querySelector("#kontakt").append(li);
+  }
+  lebenslaufRendern(document.querySelector("#lebenslauf"), daten, sprache);
+  const [jahr, monat] = daten.stand.split("-");
+  document.querySelector("#stand").textContent = (sprache === "de" ? "Stand " : "As of ") + `${monat}/${jahr}`;
+  await document.fonts.ready;
+  document.body.dataset.fertig = "1";
+</script>
+</body>
+</html>

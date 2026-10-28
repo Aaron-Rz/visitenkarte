@@ -148,6 +148,14 @@
     color: var(--leise);
     font-size: 14px;
   }
+  /* Wert mit Pfeil für die Profil-Zeile */
+  .direkt i {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-style: normal;
+  }
+  .direkt i svg { width: 16px; height: 16px; color: var(--leise); }
 
   /* dezent: Weitergeben ist eine Nebenaktion, kein dritter großer Knopf */
   .teilen {
@@ -178,14 +186,23 @@
   }
   .direkt a:focus-visible { border-radius: 4px; }
 
+  /* mittlere Höhen (iPhone 13/14 mit Safari-Leisten) */
+  @media (min-height: 601px) and (max-height: 720px) {
+    .portrait { width: 120px; height: 120px; }
+    h1 { margin-top: 22px; }
+    .direkt { margin-top: 28px; }
+  }
+
   /* niedrige Bildschirme (iPhone SE mit Safari-Leisten): alles ohne Scrollen */
   @media (max-height: 600px) {
-    main { padding-top: max(16px, env(safe-area-inset-top)); padding-bottom: max(12px, env(safe-area-inset-bottom)); }
-    .portrait { width: 100px; height: 100px; }
-    h1 { margin-top: 16px; font-size: 42px; }
-    .aktionen { margin-top: 24px; }
-    .direkt { margin-top: 24px; }
-    .teilen { margin-top: 8px; }
+    main { padding-top: max(12px, env(safe-area-inset-top)); padding-bottom: max(8px, env(safe-area-inset-bottom)); }
+    .portrait { width: 84px; height: 84px; }
+    h1 { margin-top: 12px; font-size: 38px; }
+    .titel { margin-top: 4px; }
+    .aktionen { margin-top: 20px; }
+    .direkt { margin-top: 20px; }
+    .direkt a { padding: 10px 0; }
+    .teilen { margin-top: 4px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -210,6 +227,7 @@
   <ul class="direkt">
     <li><a href="tel:+4915901690347"><span>Phone</span>+49 1590 1690347</a></li>
     <li><a href="mailto:aaron.ratz@icloud.com"><span>Email</span>aaron.ratz@icloud.com</a></li>
+    <li><a href="profile/"><span>Profile</span><i>CV &amp; credentials<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></i></a></li>
   </ul>
 
   <button class="teilen" type="button" aria-live="polite">
