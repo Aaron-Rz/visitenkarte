@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aaron Ratz – CV & credentials</title>
+<meta name="description" content="CV, references, grades and certificates of Aaron Ratz – Marketing, AI & Automation.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="format-detection" content="telephone=no, email=no, address=no">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0E0F12">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230E0F12'/%3E%3Ctext x='32' y='42' font-family='Times New Roman,serif' font-size='28' text-anchor='middle' fill='%23EDEEF0'%3EAR%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="../fonts/crimson-pro.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face {
+    font-family: "Crimson Pro";
+    src: url("../fonts/crimson-pro.woff2") format("woff2");
+    font-weight: 200 900;
+    font-display: swap;
+  }
+
+  /* gleiche Farben wie die Kontaktseite (mattes Schwarz, Silber) */
+  :root {
+    --matt: #0E0F12;
+    --flaeche: #16181C;
+    --text: #EDEEF0;
+    --leise: #8B8F96;
+    --linie: rgba(237, 238, 240, .12);
+    --rahmen: rgba(237, 238, 240, .42);
+    --rahmen-hover: rgba(237, 238, 240, .64);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    background: var(--matt);
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    background: var(--matt);
+    color: var(--text);
+    font: 400 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  main {
+    max-width: 640px;
+    margin: 0 auto;
+    padding:
+      max(12px, env(safe-area-inset-top))
+      max(24px, env(safe-area-inset-right))
+      max(40px, env(safe-area-inset-bottom))
+      max(24px, env(safe-area-inset-left));
+  }
+  a { color: inherit; }
+  svg { flex: none; }
+
+  /* Kopfzeile: zurück zur Kontaktseite, Teilen */
+  .leiste {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 -12px;
+  }
+  .leisten-knopf {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    padding: 0 12px;
+    border: 0;
+    background: none;
+    color: var(--leise);
+    font: inherit;
+    font-size: 15px;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .leisten-knopf svg { width: 18px; height: 18px; }
+  .leisten-knopf:active { opacity: .6; }
+
+  .kopf {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .kopf img {
+    flex: none;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 0 1px var(--rahmen);
+  }
+  h1 {
+    margin: 0;
+    font: 500 36px/1.05 "Crimson Pro", "Times New Roman", serif;
+  }
+  .titel { margin: 4px 0 0; color: var(--leise); }
+
+  /* Sprungmarken: bleibt beim Scrollen oben stehen */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    margin: 24px -24px 0;
+    padding: 8px 24px;
+    background: var(--matt);
+    border-bottom: 1px solid var(--linie);
+  }
+  nav ul {
+    display: flex;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  nav a {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--leise);
+    font-size: 15px;
+    text-decoration: none;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+  }
+  nav a[aria-current="true"] { background: var(--flaeche); color: var(--text); }
+
+  section.teil { scroll-margin-top: 64px; padding-top: 32px; }
+  h2 {
+    margin: 0 0 16px;
+    font: 500 30px/1.1 "Crimson Pro", "Times New Roman", serif;
+  }
+  .hinweis { margin: -8px 0 16px; color: var(--leise); font-size: 14px; }
+
+  /* Knöpfe wie auf der Kontaktseite */
+  .knoepfe { display: grid; grid-template-columns: 1fr auto; gap: 12px; }
+  .knopf {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 52px;
+    padding: 0 20px;
+    border: 0;
+    border-radius: 10px;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    transition: transform .1s ease, opacity .1s ease, background-color .15s ease, box-shadow .15s ease;
+  }
+  .knopf svg { width: 18px; height: 18px; }
+  .knopf:active { transform: scale(.98); opacity: .8; }
+  .primaer { background: var(--text); color: var(--matt); }
+  .sekundaer { background: none; color: var(--text); box-shadow: inset 0 0 0 1px var(--rahmen); }
+  @media (hover: hover) {
+    .primaer:hover { background: #FFFFFF; }
+    .sekundaer:hover { box-shadow: inset 0 0 0 1px var(--rahmen-hover); }
+  }
+  .zweitsprache { margin: 12px 0 0; font-size: 14px; color: var(--leise); }
+  .zweitsprache a { color: var(--text); }
+
+  /* Lebenslauf (von lebenslauf.js befüllt) */
+  .cv { margin-top: 28px; }
+  .cv-profil { margin: 0; font-size: 17px; }
+  .cv-abschnitt { margin-top: 28px; }
+  .cv-abschnitt h3 {
+    margin: 0 0 12px;
+    color: var(--leise);
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .stationen { margin: 0; padding: 0; list-style: none; }
+  .station {
+    display: grid;
+    grid-template-columns: 136px 1fr;
+    gap: 4px 16px;
+    padding: 12px 0;
+    border-top: 1px solid var(--linie);
+  }
+  .station .zeit { margin: 0; color: var(--leise); font-size: 14px; font-variant-numeric: tabular-nums; }
+  .station .rolle { margin: 0; font-weight: 600; }
+  .station .ort { margin: 0; color: var(--leise); font-size: 15px; }
+  .punkte { margin: 6px 0 0; padding-left: 18px; font-size: 15px; }
+  .punkte li + li { margin-top: 2px; }
+  .faehigkeiten { display: grid; grid-template-columns: 136px 1fr; gap: 8px 16px; margin: 0; }
+  .faehigkeiten dt { color: var(--leise); font-size: 14px; }
+  .faehigkeiten dd { margin: 0; }
+  .liste { margin: 0; }
+  .zertifikate { margin: 0; padding-left: 18px; }
+  .zertifikate li + li { margin-top: 4px; }
+  .cv-fehler { color: var(--leise); }
+
+  /* Dokumentzeilen */
+  .dokumente { margin: 0; padding: 0; list-style: none; }
+  .dokument {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-top: 1px solid var(--linie);
+  }
+  .dokument:last-child { border-bottom: 1px solid var(--linie); }
+  .dokument div { flex: 1; min-width: 0; }
+  .dokument p { margin: 0; }
+  .dokument .meta { color: var(--leise); font-size: 14px; }
+  .symbol {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: 10px;
+    background: none;
+    color: var(--text);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: opacity .1s ease, background-color .15s ease;
+  }
+  .symbol svg { width: 20px; height: 20px; }
+  .symbol:active { opacity: .6; }
+  @media (hover: hover) { .symbol:hover { background: var(--flaeche); } }
+
+  footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--linie);
+    color: var(--leise);
+    font-size: 14px;
+  }
+  footer p { margin: 0 0 12px; }
+
+  .meldung {
+    position: fixed;
+    left: 50%;
+    bottom: max(24px, env(safe-area-inset-bottom));
+    transform: translate(-50%, 16px);
+    padding: 10px 16px;
+    border-radius: 10px;
+    background: var(--text);
+    color: var(--matt);
+    font-size: 15px;
+    font-weight: 600;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  .meldung.sichtbar { opacity: 1; transform: translate(-50%, 0); }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+    border-radius: 10px;
+  }
+
+  @media (max-width: 420px) {
+    .station, .faehigkeiten { grid-template-columns: 1fr; gap: 2px; }
+    .faehigkeiten dd { margin-bottom: 8px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .knopf, .symbol, .meldung { transition: none; }
+    .knopf:active { transform: none; }
+  }
+</style>
+</head>
+<body ontouchstart="">
+<main>
+  <div class="leiste">
+    <a class="leisten-knopf" href="../">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      Contact card
+    </a>
+    <button class="leisten-knopf" type="button" data-teilen="seite">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>
+      Share
+    </button>
+  </div>
+
+  <header class="kopf">
+    <img src="../profil.jpg" alt="Portrait of Aaron Ratz" width="72" height="72">
+    <div>
+      <h1>Aaron Ratz</h1>
+      <p class="titel">Marketing, AI &amp; Automation</p>
+    </div>
+  </header>
+
+  <nav aria-label="Sections">
+    <ul>
+      <li><a href="#cv">CV</a></li>
+      <li><a href="#references">References</a></li>
+      <li><a href="#grades">Grades</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+    </ul>
+  </nav>
+
+  <section class="teil" id="cv">
+    <h2>CV</h2>
+    <div class="knoepfe">
+      <a class="knopf primaer" href="docs/cv-aaron-ratz-en.pdf" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5"/><path d="M5 20h14"/></svg>
+        Download CV
+      </a>
+      <button class="knopf sekundaer" type="button" data-teilen="docs/cv-aaron-ratz-en.pdf" data-titel="CV – Aaron Ratz" aria-label="Share CV">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>
+        Share
+      </button>
+    </div>
+    <p class="zweitsprache">Also available in German: <a href="docs/cv-aaron-ratz-de.pdf" target="_blank" rel="noopener" lang="de">Lebenslauf (PDF)</a></p>
+    <div class="cv" id="lebenslauf"><p class="cv-fehler">Loading CV …</p></div>
+  </section>
+
+  <section class="teil" id="references">
+    <h2>References</h2>
+    <p class="hinweis">Original documents in German.</p>
+    <ul class="dokumente">
+      <li class="dokument" data-pdf="docs/reference-werbeliebe.pdf"><div><p>Werbeliebe e.V. – interim reference</p><p class="meta">Student communications agency · 18 Nov 2025</p></div></li>
+      <li class="dokument" data-pdf="docs/reference-tv-bw.pdf"><div><p>TV-BW Medienproduktionen – internship reference</p><p class="meta">Media design, image &amp; sound · 20 May 2024</p></div></li>
+      <li class="dokument" data-pdf="docs/reference-schwabenrepro.pdf"><div><p>Schwabenrepro – internship confirmation</p><p class="meta">Media design, school internship · 3 Sep 2021</p></div></li>
+    </ul>
+  </section>
+
+  <section class="teil" id="grades">
+    <h2>Grades</h2>
+    <p class="hinweis">Original documents in German.</p>
+    <ul class="dokumente">
+      <li class="dokument" data-pdf="docs/transcript-hs-pforzheim.pdf"><div><p>Transcript of records – Hochschule Pforzheim</p><p class="meta">Current grade 2.1 · 2 Mar 2026 · verifiable online</p></div></li>
+      <li class="dokument" data-pdf="docs/transcript-abitur.pdf"><div><p>Abitur certificate – Gymnasium Neuenbürg</p><p class="meta">Grade 2.8 · 27 Jun 2023</p></div></li>
+    </ul>
+  </section>
+
+  <section class="teil" id="certificates">
+    <h2>Certificates</h2>
+    <ul class="dokumente">
+      <li class="dokument" data-pdf="docs/certificate-inside-lvmh.pdf"><div><p>INSIDE LVMH Certificate</p><p class="meta">LVMH · Creation &amp; Branding, Retail &amp; Customer Experience · Jul 2026</p></div></li>
+      <li class="dokument" data-pdf="docs/certificate-bocconi.pdf"><div><p>Management of Fashion and Luxury Companies</p><p class="meta">Università Bocconi via Coursera · Feb 2026</p></div></li>
+      <li class="dokument" data-pdf="docs/certificate-mckinsey-forward.pdf"><div><p>McKinsey.org Forward Program</p><p class="meta">McKinsey.org · Dec 2025</p></div></li>
+      <li class="dokument" data-pdf="docs/certificate-hootsuite.pdf"><div><p>Social Media Marketing Professional Certificate</p><p class="meta">Hootsuite via LinkedIn Learning · Jul 2025</p></div></li>
+      <li class="dokument" data-pdf="docs/certificate-dgp.pdf"><div><p>German Founders' Prize for Students</p><p class="meta">Business plan competition, team “Lifemastery” · 2022 · in German</p></div></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>Personal address details have been removed from the documents.</p>
+    <a class="leisten-knopf" href="../" style="margin-left:-12px">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      Back to contact card
+    </a>
+  </footer>
+</main>
+<p class="meldung" role="status" aria-live="polite"></p>
+
+<template id="aktionen">
+  <a class="symbol" target="_blank" rel="noopener" data-aktion="ansehen">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+  </a>
+  <button class="symbol" type="button" data-aktion="teilen">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>
+  </button>
+</template>
+
+<script type="module">
+  import { lebenslaufLaden, lebenslaufRendern } from "./lebenslauf.js";
+
+  const meldung = document.querySelector(".meldung");
+  let meldungTimer;
+  function melden(text) {
+    meldung.textContent = text;
+    meldung.classList.add("sichtbar");
+    clearTimeout(meldungTimer);
+    meldungTimer = setTimeout(() => meldung.classList.remove("sichtbar"), 2000);
+  }
+
+  // Teilt eine Datei (wo das System Dateien teilen kann) oder sonst den Link; ohne Web Share API wird der Link kopiert.
+  async function teilen(pfad, titel) {
+    const url = new URL(pfad, location.href).href;
+    try {
+      if (navigator.share) {
+        if (pfad.endsWith(".pdf") && navigator.canShare) {
+          const blob = await (await fetch(url)).blob();
+          const datei = new File([blob], `${titel}.pdf`, { type: "application/pdf" });
+          if (navigator.canShare({ files: [datei] })) {
+            await navigator.share({ files: [datei], title: titel });
+            return;
+          }
+        }
+        await navigator.share({ title: titel, url });
+        return;
+      }
+      await navigator.clipboard.writeText(url);
+      melden("Link copied");
+    } catch (e) {
+      if (e.name !== "AbortError") melden("Sharing not available");
+    }
+  }
+
+  // Jede Dokumentzeile bekommt „Ansehen“ und „Teilen“
+  const vorlage = document.querySelector("#aktionen");
+  document.querySelectorAll(".dokument").forEach(zeile => {
+    const titel = zeile.querySelector("p").textContent;
+    const aktionen = vorlage.content.cloneNode(true);
+    const ansehen = aktionen.querySelector('[data-aktion="ansehen"]');
+    ansehen.href = zeile.dataset.pdf;
+    ansehen.setAttribute("aria-label", `Open ${titel} (PDF)`);
+    const teilenKnopf = aktionen.querySelector('[data-aktion="teilen"]');
+    teilenKnopf.setAttribute("aria-label", `Share ${titel}`);
+    teilenKnopf.addEventListener("click", () => teilen(zeile.dataset.pdf, `${titel} – Aaron Ratz`));
+    zeile.append(aktionen);
+  });
+
+  document.querySelectorAll("[data-teilen]").forEach(knopf => {
+    knopf.addEventListener("click", () => {
+      const ziel = knopf.dataset.teilen;
+      if (ziel === "seite") teilen(location.pathname, "Aaron Ratz – CV & credentials");
+      else teilen(ziel, knopf.dataset.titel);
+    });
+  });
+
+  // aktiven Abschnitt markieren: der letzte, dessen Oberkante unter der Navigation durch ist; am Seitenende der letzte
+  const links = [...document.querySelectorAll("nav a")];
+  const abschnitte = [...document.querySelectorAll("section.teil")];
+  const navUnten = () => document.querySelector("nav").getBoundingClientRect().bottom + 16;
+  function markieren() {
+    let aktiv = abschnitte[0];
+    for (const s of abschnitte) if (s.getBoundingClientRect().top <= navUnten()) aktiv = s;
+    // Toleranz: auf Retina-Displays bleiben am Seitenende Bruchteile von Pixeln übrig
+    if (innerHeight + scrollY >= document.documentElement.scrollHeight - 8) aktiv = abschnitte.at(-1);
+    links.forEach(a => a.setAttribute("aria-current", String(a.hash === `#${aktiv.id}`)));
+  }
+  let geplant = false;
+  addEventListener("scroll", () => {
+    if (geplant) return;
+    geplant = true;
+    requestAnimationFrame(() => { geplant = false; markieren(); });
+  }, { passive: true });
+  addEventListener("scrollend", markieren);
+  markieren();
+
+  try {
+    lebenslaufRendern(document.querySelector("#lebenslauf"), await lebenslaufLaden(), "en");
+  } catch (e) {
+    document.querySelector("#lebenslauf").innerHTML = '<p class="cv-fehler">The CV could not be loaded – please use the PDF above.</p>';
+  }
+</script>
+</body>
+</html>

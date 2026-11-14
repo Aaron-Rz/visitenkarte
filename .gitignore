@@ -1,0 +1,6 @@
+.playwright-mcp/
+__pycache__/
+*.heic
+*.HEIC
+.claude/
+werkzeuge/*.local.json
